@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Support</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Assuming you have a style.css in the static directory -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+        }
+
+        body {
+            background-color: #ffffff; /* Changed to white */
+            color: #000000; /* Changed text color to black */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-right: 30px;
+            padding-left: 20px;
+            height: 80px;
+            color: #000000; /* Changed text color to black */
+            z-index: 1000;
+            background-color: #ffffff; /* Changed background to white */
+        }
+
+        .nav-container ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            font-size: 15px;
+        }
+
+        .nav-container ul li {
+            cursor: pointer;
+            transition: 0.5s;
+            padding: 3px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-container ul li:hover,
+        .nav-container .icons i:hover {
+            background-color: rgba(0, 0, 0, 0.1); /* Light gray background on hover */
+        }
+
+        .logo {
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    filter: invert(0) grayscale(100%) contrast(100%) brightness(100%); /* Ensure the logo appears black */
+}
+
+
+        .nav-container .icons {
+            display: flex;
+            font-size: 25px;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .nav-container .icons i {
+            border-radius: 50%;
+            padding: 3px;
+            transition: 0.5s;
+        }
+
+        .support-container {
+            max-width: 600px;
+            width: 100%;
+            margin-top: 80px; /* Added margin-top to account for the fixed nav */
+            background-color: #ffffff; /* Changed background to white */
+            padding: 20px;
+            color: #000000; /* Changed text color to black */
+        }
+
+        .support-container h1 {
+            margin-bottom: 20px;
+            color: #000000; /* Changed heading color to black */
+        }
+
+        .support-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000000; /* Changed label color to black */
+        }
+
+        .support-container input,
+        .support-container select,
+        .support-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ffffff; /* Changed background to white */
+            color: #000000; /* Changed text color to black */
+        }
+
+        .support-container button {
+            background-color: #000000; /* Changed button background to black */
+            color: #ffffff; /* Changed button text color to white */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .support-container button:hover {
+            background-color: #888888; /* Changed hover color to gray */
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <a href="/">
+            <img class="logo" src="Media/Tesla-Logo.png" alt="Tesla Logo" />
+        </a>
+    </nav>
+
+    <div class="support-container">
+        <h1>Contact Tesla Support</h1>
+        <form action="/submit_support" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="car">Car Model:</label>
+            <select id="car" name="car" required>
+                <option value="Model S">Model S</option>
+                <option value="Model 3">Model 3</option>
+                <option value="Model X">Model X</option>
+                <option value="Model Y">Model Y</option>
+            </select>
+
+            <label for="issue">Describe Your Issue:</label>
+            <textarea id="issue" name="issue" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
